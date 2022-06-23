@@ -1,0 +1,28 @@
+<h1> Buscador:<small> {{termino | uppercase}}</small></h1>
+<hr>
+
+<div *ngIf="heroes.length == 0" class="row">
+  <div class="col-mb-12">
+    <div class="alert alert-primary" role="alert">
+      <h2>El termino que busca no se encurntra: {{termino}}</h2>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col  animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
+    <div class="card h-100">
+      <img [src]="heroe.img" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{heroe.nombre}}</h5>
+        <p class="card-text">{{heroe.bio }} </p>
+        <a [routerLink]="['/heroe',i]" class="btn btn-outline-primary" style="width: 100%;">
+          vér mas..,
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
